@@ -37,7 +37,7 @@ occ_download(
 occ_download_wait('0019233-240506114902167')
 
 ubc_bee <- occ_download_get('0019233-240506114902167') %>%
-  occ_download_import()
+  occ_download_import() # dont push data to git
 
 unique(ubc_bee$species) # the unique species names
 length(unique(ubc_bee$species)) # number of unique species
@@ -62,7 +62,7 @@ out <-iNEXT(ubc_bee_rare,
             knots = 80)
 
 #return the 'out' object  to get more information on accumulation results
-print(out)
+print(out$AsyEst)
 
 # plot species accumulation curve
 ggiNEXT(out, type = 1, se = T, facet.var="None", grey = T) 
